@@ -2,16 +2,16 @@
 
     (:requirements :strips :equality :negative-preconditions :fluents)
 
-    (:predicates (position ?P)
-                 (inc ?P ?PP)
-                 (safe-zone ?X ?Y)
-                 (obstacle ?X ?Y)
-                 (person ?X ?Y)
-                 (drone ?X ?Y)
-                 (empty-drone)
+    (:predicates (position ?P)          ; P is a valid coordinate position (assuming square grid)
+                 (inc ?P ?PP)            ; PP is greater coordinate than P
+                 (safe-zone ?X ?Y)       ; The safe zone is at coordinates (X, Y)
+                 (obstacle ?X ?Y)        ; There is an obstacle at coordinates (X, Y)
+                 (person ?X ?Y)   ; There is a person at coordinates (X, Y)
+                 (drone ?X ?Y)    ; The drone is at coordinates (X, Y)
+                 (empty-drone)    ; The drone is not carrying a person
     )
 
-    (:functions (safe-zone-capacity))
+    (:functions (safe-zone-capacity)) ; Maximum amount of people the safe zone can hold
 
     (:action up
         :parameters (?X ?Y ?NY) 
