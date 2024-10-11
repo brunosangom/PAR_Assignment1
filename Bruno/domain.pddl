@@ -9,48 +9,72 @@
                  (person ?X ?Y)   ; There is a person at coordinates (X, Y)
                  (drone ?X ?Y)    ; The drone is at coordinates (X, Y)
                  (empty-drone)    ; The drone is not carrying a person
-                 (spot ?S)                  ; S is a valid spot of the safe zone
+                 (spot ?S)               ; S is a valid spot of the safe zone
                  (free-spot ?S)   ; The spot S of the safe zone is free
     )
 
     (:action up
         :parameters (?X ?Y ?NY) 
 
-        :precondition (and (position ?X) (position ?Y) (position ?NY) (inc ?NY ?Y) (drone ?X ?Y) (not (obstacle ?X ?NY)))
+        :precondition (and 
+                      (position ?X) (position ?Y) (position ?NY) 
+                      (inc ?NY ?Y) 
+                      (drone ?X ?Y) 
+                      (not (obstacle ?X ?NY))
+        )
 
         :effect (and
                 (drone ?X ?NY)
-                (not (drone ?X ?Y)))
+                (not (drone ?X ?Y))
+        )
     )
 
     (:action down
         :parameters (?X ?Y ?NY) 
 
-        :precondition (and (position ?X) (position ?Y) (position ?NY) (inc ?Y ?NY) (drone ?X ?Y) (not (obstacle ?X ?NY)))
+        :precondition (and 
+                      (position ?X) (position ?Y) (position ?NY) 
+                      (inc ?Y ?NY) 
+                      (drone ?X ?Y) 
+                      (not (obstacle ?X ?NY))
+        )
 
         :effect (and
                 (drone ?X ?NY)
-                (not (drone ?X ?Y)))
+                (not (drone ?X ?Y))
+        )
     )
 
     (:action right
         :parameters (?X ?Y ?NX) 
 
-        :precondition (and (position ?X) (position ?Y) (position ?NX) (inc ?X ?NX) (drone ?X ?Y) (not (obstacle ?NX ?Y)))
+        :precondition (and 
+                      (position ?X) (position ?Y) (position ?NX) 
+                      (inc ?X ?NX) 
+                      (drone ?X ?Y) 
+                      (not (obstacle ?NX ?Y))
+        )
 
         :effect (and
                 (drone ?NX ?Y)
-                (not (drone ?X ?Y)))
+                (not (drone ?X ?Y))
+        )
     )
 
     (:action left
         :parameters (?X ?Y ?NX) 
 
-        :precondition (and (position ?X) (position ?Y) (position ?NX) (inc ?NX ?X) (drone ?X ?Y) (not (obstacle ?NX ?Y)))
+        :precondition (and 
+                      (position ?X) (position ?Y) (position ?NX)
+                      (inc ?NX ?X) 
+                      (drone ?X ?Y) 
+                      (not (obstacle ?NX ?Y))
+        )
 
         :effect (and
                 (drone ?NX ?Y)
-                (not (drone ?X ?Y)))
+                (not (drone ?X ?Y))
+        )
     )
 
     (:action pick-up
@@ -64,7 +88,10 @@
     (:action drop-off
         :parameters (?X ?Y ?S)
 
-        :precondition (and (drone ?X ?Y) (not (empty-drone)) (safe-zone ?X ?Y) (spot ?S) (free-spot ?S))
+        :precondition (and 
+                      (drone ?X ?Y) (not (empty-drone))
+                      (safe-zone ?X ?Y) (spot ?S) (free-spot ?S)
+        )
 
         :effect (and (empty-drone) (person ?X ?Y) (not (free-spot ?S)))
     )

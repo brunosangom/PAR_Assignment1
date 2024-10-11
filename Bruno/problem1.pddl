@@ -2,7 +2,7 @@
 
     (:domain rescue-drone)
 
-    (:objects P1 P2 P3 P4 S1 S2)
+    (:objects P1 P2 P3 P4 S1 S2 S3)
 
     (:init
         (position P1) (position P2) (position P3) (position P4)
