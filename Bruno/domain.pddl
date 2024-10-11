@@ -1,6 +1,6 @@
 (define (domain rescue-drone)
 
-    (:requirements :strips :equality :negative-preconditions :fluents)
+    (:requirements :strips :equality :negative-preconditions)
 
     (:predicates (position ?P)          ; P is a valid coordinate position (assuming square grid)
                  (inc ?P ?PP)            ; PP is greater coordinate than P
@@ -9,9 +9,9 @@
                  (person ?X ?Y)   ; There is a person at coordinates (X, Y)
                  (drone ?X ?Y)    ; The drone is at coordinates (X, Y)
                  (empty-drone)    ; The drone is not carrying a person
+                 (spot ?S)                  ; S is a valid spot of the safe zone
+                 (free-spot ?S)   ; The spot S of the safe zone is free
     )
-
-    (:functions (safe-zone-capacity)) ; Maximum amount of people the safe zone can hold
 
     (:action up
         :parameters (?X ?Y ?NY) 
@@ -62,17 +62,17 @@
     )
 
     (:action drop-off
-        :parameters (?X ?Y)
+        :parameters (?X ?Y ?S)
 
-        :precondition (and (drone ?X ?Y) (safe-zone ?X ?Y) (not (empty-drone)) (> (safe-zone-capacity) 0))
+        :precondition (and (drone ?X ?Y) (not (empty-drone)) (safe-zone ?X ?Y) (spot ?S) (free-spot ?S))
 
-        :effect (and (empty-drone) (person ?X ?Y) (decrease (safe-zone-capacity) 1))
+        :effect (and (empty-drone) (person ?X ?Y) (not (free-spot ?S)))
     )
 
     (:action evacuate-safe-zone
-        :parameters ()
-        :precondition (and (= (safe-zone-capacity) 0))
-        :effect (and (increase (safe-zone-capacity) 1))
+        :parameters (?S)
+        :precondition (and (spot ?S) (not (free-spot ?S)))
+        :effect (free-spot ?S)
     )
     
     
