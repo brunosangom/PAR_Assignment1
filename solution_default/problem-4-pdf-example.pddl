@@ -1,19 +1,18 @@
 (define (problem rescue-drone-problem)
   (:domain rescue-drone)
 
-  ;; Declare objects (locations and persons)
   (:objects
-    d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 d16; Three locations
-    p1 p2 p3; One person
+    d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 d16 ; Locations
+    p1 p2 p3 ; Persons
+    s1 s2 s3 ; Spots
     )
 
-  ;; Define the initial state
   (:init
-    (drone-location d1) ; The drone starts at location d1
-    (person-location p1 d4) ; The person p1 is stranded at location d4
-    (person-location p2 d5) ; The person p1 is stranded at location d5
-    (person-location p3 d10) ; The person p1 is stranded at location d10
-    (safe-zone d14) ; Location d3 is the safe zone
+    (drone-location d1)
+    (person-location p1 d4)
+    (person-location p2 d5)
+    (person-location p3 d10)
+    (safe-zone d14)
 
     ;; Define adjacencies for a 3x3 grid
     (adjacent d1 d2)
@@ -80,20 +79,23 @@
     (adjacent d16 d12)
     (adjacent d16 d15)
 
-    ;; obstacles
+    ;; Obstacles
     (obstacle d7)
     (obstacle d11)
     (obstacle d16)
 
-    ;; safe-zone capacity
-    (= (safe-zone-capacity-limit) 3) ; Safe zone can hold m=n-1 person, where n is the number of row or column (here n=4)
-    (= (safe-zone-capacity-count) 0) ; Currently, no one is in the safe zone
+    ;; Safe-zone spots
+    (spot s1)
+    (spot s2)
+    (spot s3)
+    (free-spot s1)
+    (free-spot s2)
+    (free-spot s3)
   )
 
-  ;; Define the goal state
   (:goal
     (and
-      (rescued p1) ; The goal is to have person p1 rescued
+      (rescued p1)
       (rescued p2)
       (rescued p3)
     )
