@@ -1,4 +1,4 @@
-(define (problem pb1)
+(define (problem pb5)
 
     (:domain rescue-drone)
 

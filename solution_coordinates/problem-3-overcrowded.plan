@@ -1,5 +1,5 @@
 ;;!domain: rescue-drone
-;;!problem: pb1
+;;!problem: pb3
 
 0.00000: (RIGHT P1 P1 P2)
 0.00100: (PICK-UP P2 P1)

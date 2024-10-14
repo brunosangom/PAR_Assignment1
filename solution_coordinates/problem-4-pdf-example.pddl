@@ -1,4 +1,4 @@
-(define (problem pb1)
+(define (problem pb4)
 
     (:domain rescue-drone)
 
@@ -29,6 +29,10 @@
         (person-location P4 P1)
         (person-location P1 P2)
         (person-location P2 P3)
+
+        (obstacle P3 P2)
+        (obstacle P3 P3)
+        (obstacle P4 P4)
 
         (drone-location P1 P1)
         (empty-drone)

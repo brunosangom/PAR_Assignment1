@@ -1,0 +1,7 @@
+;;!domain: rescue-drone
+;;!problem: pb7
+
+; ff: goal can be simplified to FALSE. No plan will solve it
+
+; Makespan: 0
+; Metric: 0
