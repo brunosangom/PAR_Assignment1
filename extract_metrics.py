@@ -38,7 +38,7 @@ def process_directory(directory):
     results = []
     for root, _, files in os.walk(directory):
         for filename in files:
-            if filename.startswith("stats-") and filename.endswith(".txt"):
+            if filename.startswith("problem-") and filename.endswith(".txt"):
                 file_path = os.path.join(root, filename)
                 metrics = extract_metrics(file_path)
                 results.append(metrics)
@@ -47,7 +47,7 @@ def process_directory(directory):
 
 def format_file_name(file_path):
     directory, filename = file_path.split("/")
-    problem_number = re.search(r"stats-(\d+)", filename).group(1)
+    problem_number = re.search(r"problem-(\d+)", filename).group(1)
 
     directory_map = {
         "solution_default": "Solution Default",
@@ -68,7 +68,7 @@ def main():
         results = process_directory(directory)
         all_results.extend(results)
 
-    all_results.sort(key=lambda x: int(re.search(r"stats-(\d+)", x["file"]).group(1)))
+    all_results.sort(key=lambda x: int(re.search(r"problem-(\d+)", x["file"]).group(1)))
 
     table_data = [
         [
