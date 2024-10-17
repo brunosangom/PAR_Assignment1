@@ -1,0 +1,717 @@
+Planning service: https://solver.planning.domains:5001/package/delfi/solve
+Domain: rescue-drone, Problem: pb1
+Parsing pddl.....
+Parsing pddl..: [0.010s CPU, 0.003s wall-clock]
+Normalizing task.....
+Normalizing task..: [0.000s CPU, 0.000s wall-clock]
+Creating abstract structure graph.....
+Creating abstract structure graph..: [0.000s CPU, 0.001s wall-clock]
+Computing image from given graph...
+Using graph input file /tmp/tmp47u5_n47/abstract-structure-graph.txt
+Using image output directory /tmp/tmp47u5_n47
+Writing abstract structure graph grayscale 8bit image.....
+Grayscale color: 255
+Creating matrix for a graph with 200 nodes..
+Matrix size when created: 323208
+Matrix created, filling with values for edges..
+Performing bolding.
+Matrix size when 1s added: 323208
+Number of graph nodes: 201
+Shrink ratio: 3
+Shrinking matrix to size 67x67..
+Shrinked matrix size when created: 35912
+Writing grayscale image of size 128x128 ..
+Writing abstract structure graph grayscale 8bit image..: [0.280s CPU, 0.018s wall-clock]
+Done computing image! [0.300s CPU, 0.019s wall-clock]
+
+==== Computing an abstract structure graph from the lifted task description... ====
+
+
+==== Done computing an abstract structure graph. ====
+
+
+==== Selecting planner from learned model... ====
+
+Using json model file /workspace/delfi/dl_model/models/lifted/model.json
+Using h5 model file /workspace/delfi/dl_model/models/lifted/model.h5
+Loaded model from disk
+Chose 5652d59dafed-h2-simpless-oss-900masb50ksbmiasm
+
+==== Done selecting planner from learned model. ====
+
+
+==== Running the selected planner... ====
+
+Running planner, call string: ['/usr/bin/python', '/workspace/delfi/fast-downward.py', '--transform-task', 'preprocess', '--build', 'release64', '--search-memory-limit', '7600M', '--plan-file', 'plan', 'domain', 'problem', '--symmetries', 'sym=structural_symmetries(search_symmetries=oss)', '--search', 'astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false),merge_strategy=merge_stateless(merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation,max_states=50000),total_order(atomic_before_product=true,atomic_ts_order=reverse_level,product_ts_order=old_to_new)])),label_reduction=exact(before_shrinking=true,before_merging=false),max_states=50000,threshold_before_merge=1,max_time=900,prune_unreachable_states=false),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)']
+INFO     Running translator.
+INFO     translator input: ['domain', 'problem']
+INFO     translator arguments: []
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     callstring: /usr/bin/python /workspace/delfi/builds/release64/bin/translate/translate.py domain problem
+Parsing...
+Parsing: [0.000s CPU, 0.002s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.003s wall-clock]
+Preparing model... [0.010s CPU, 0.001s wall-clock]
+Generated 47 rules.
+Computing model... [0.000s CPU, 0.002s wall-clock]
+67 relevant atoms
+107 auxiliary atoms
+174 final queue length
+195 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.010s CPU, 0.008s wall-clock]
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+16 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.002s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+34 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+0 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.001s wall-clock]
+Reordering and filtering variables...
+16 of 16 variables necessary.
+0 of 0 mutex groups necessary.
+32 of 32 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.001s wall-clock]
+Translator variables: 16
+Translator derived variables: 0
+Translator facts: 32
+Translator goal facts: 5
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 32
+Translator axioms: 0
+Translator task size: 193
+Translator peak memory: 27852 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.016s wall-clock]
+INFO     Run task transformation (preprocess).
+INFO     Absolute path: /workspace/delfi/builds/release64/bin/preprocess
+INFO     callstring: /workspace/delfi/builds/release64/bin/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+16 variables of 16 necessary
+0 of 0 mutex groups necessary.
+32 of 32 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 32 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=256, notReached=736, spurious=32
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=920, notReached=72, spurious=32
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 72, unreachable: 0
+0 of 32 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=635, notReached=285, spurious=104
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=920, notReached=0, spurious=104
+0 operators are spurious because were not triggered
+H^2 mutexes added bw: 0, unreachable: 0
+0 of 32 operators detected as spurious
+Total mutex and disambiguation time: 0.000384 iterations: 2
+36 of 36 mutex groups necessary.
+32 of 32 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 32
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 16
+36 of 36 mutex groups necessary.
+32 of 32 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+16 variables of 16 of 16 necessary
+The causal graph is not acyclic.
+16 variables of 16 necessary
+36 of 36 mutex groups necessary.
+32 of 32 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 16
+Preprocessor facts: 32
+Preprocessor derived variables: 0
+Preprocessor operators: 32
+Preprocessor mutex groups: 36
+Preprocessor task size: 265
+Writing output...
+done
+INFO     Running search (release64).
+INFO     search input: output.sas
+INFO     search arguments: ['--symmetries', 'sym=structural_symmetries(search_symmetries=oss)', '--search', 'astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false),merge_strategy=merge_stateless(merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation,max_states=50000),total_order(atomic_before_product=true,atomic_ts_order=reverse_level,product_ts_order=old_to_new)])),label_reduction=exact(before_shrinking=true,before_merging=false),max_states=50000,threshold_before_merge=1,max_time=900,prune_unreachable_states=false),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)']
+INFO     search time limit: None
+INFO     search memory limit: 7600 MB
+INFO     search executable: /workspace/delfi/builds/release64/bin/downward
+INFO     callstring: /workspace/delfi/builds/release64/bin/downward --symmetries 'sym=structural_symmetries(search_symmetries=oss)' --search 'astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false),merge_strategy=merge_stateless(merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation,max_states=50000),total_order(atomic_before_product=true,atomic_ts_order=reverse_level,product_ts_order=old_to_new)])),label_reduction=exact(before_shrinking=true,before_merging=false),max_states=50000,threshold_before_merge=1,max_time=900,prune_unreachable_states=false),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)' --internal-plan-file plan < output.sas
+reading input... [t=6.3619e-05s]
+done reading input! [t=0.000344597s]
+packing state variables...done! [t=0.000356238s]
+Variables: 16
+FactPairs: 32
+Bytes per state: 4
+Building successor generator...done! [t=0.000430968s]
+peak memory difference for root successor generator creation: 0 KB
+time for root successor generation creation: 1.5719e-05s
+done initializing global data [t=0.000461626s]
+Initializing merge-and-shrink heuristic...
+Merge strategy options:
+Type: stateless
+Merge selector options:
+Name: score based filtering
+Merge scoring function:
+Name: miasm
+Merge scoring function:
+Name: total order
+Atomic transition system order: reverse level
+Product transition system order: old to new
+Consider atomic before product transition systems
+Random seed: -1
+
+Options related to size limits and shrinking: 
+Transition system size limit: 50000
+Transition system size limit right before merge: 50000
+Threshold to trigger shrinking right before merge: 1
+
+Shrink strategy options: 
+Type: bisimulation
+Bisimulation type: exact
+At limit: return
+
+Label reduction options:
+Before merging: disabled
+Before shrinking: enabled
+Method: all transition systems with fixpoint computation
+System order: random
+
+Verbosity: verbose
+===============================================================================
+WARNING! Pruning is (partially) turned off!
+This may drastically reduce the performance of merge-and-shrink!
+===============================================================================
+
+Building atomic transition systems... 
+done initializing transition system data 0.000128912
+done building transitions 0.000179266
+done creating transition systems 0.000209603
+done creating mas representations 0.000215955
+done creating distances 0.000219041
+Atomic transition system #0: computing init and goal distances using unit-cost algorithm
+Atomic transition system #1: computing init and goal distances using unit-cost algorithm
+Atomic transition system #2: computing init and goal distances using unit-cost algorithm
+Atomic transition system #3: computing init and goal distances using unit-cost algorithm
+Atomic transition system #4: computing init and goal distances using unit-cost algorithm
+Atomic transition system #5: computing init and goal distances using unit-cost algorithm
+Atomic transition system #6: computing init and goal distances using unit-cost algorithm
+Atomic transition system #7: computing init and goal distances using unit-cost algorithm
+Atomic transition system #8: computing init and goal distances using unit-cost algorithm
+Atomic transition system #9: computing init and goal distances using unit-cost algorithm
+Atomic transition system #10: computing init and goal distances using unit-cost algorithm
+Atomic transition system #11: computing init and goal distances using unit-cost algorithm
+Atomic transition system #12: computing init and goal distances using unit-cost algorithm
+Atomic transition system #13: computing init and goal distances using unit-cost algorithm
+Atomic transition system #14: computing init and goal distances using unit-cost algorithm
+Atomic transition system #15: computing init and goal distances using unit-cost algorithm
+done creating FTS 0.000260498
+Atomic transition system #0: not applying abstraction (same number of states)
+Atomic transition system #1: not applying abstraction (same number of states)
+Atomic transition system #2: not applying abstraction (same number of states)
+Atomic transition system #3: not applying abstraction (same number of states)
+Atomic transition system #4: not applying abstraction (same number of states)
+Atomic transition system #5: not applying abstraction (same number of states)
+Atomic transition system #6: not applying abstraction (same number of states)
+Atomic transition system #7: not applying abstraction (same number of states)
+Atomic transition system #8: not applying abstraction (same number of states)
+Atomic transition system #9: not applying abstraction (same number of states)
+Atomic transition system #10: not applying abstraction (same number of states)
+Atomic transition system #11: not applying abstraction (same number of states)
+Atomic transition system #12: not applying abstraction (same number of states)
+Atomic transition system #13: not applying abstraction (same number of states)
+Atomic transition system #14: not applying abstraction (same number of states)
+Atomic transition system #15: not applying abstraction (same number of states)
+t=0.000288251s (after computation of atomic transition systems)
+
+Next pair of indices: (0, 1)
+Atomic transition system #0: 2 states, 5 arcs 
+Atomic transition system #0: init h=0
+Atomic transition system #1: 2 states, 5 arcs 
+Atomic transition system #1: init h=0
+t=0.00092266s (after computation of next merge)
+Atomic transition system #0: current size: 2 (shrink threshold: 1)
+Atomic transition system #0: not applying abstraction (same number of states)
+Atomic transition system #1: current size: 2 (shrink threshold: 1)
+Atomic transition system #1: not applying abstraction (same number of states)
+Merging atomic transition system #0 and atomic transition system #1
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 16 arcs 
+Composite transition system with 2/16 vars: init h=0
+Difference of init h values: 0
+t=0.0014989s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (2, 3)
+Atomic transition system #2: 2 states, 6 arcs 
+Atomic transition system #2: init h=0
+Atomic transition system #3: 2 states, 6 arcs 
+Atomic transition system #3: init h=0
+t=0.0021187s (after computation of next merge)
+Label reduction: 32 labels, 30 after reduction
+t=0.00265547s (after label reduction)
+Atomic transition system #2: current size: 2 (shrink threshold: 1)
+Atomic transition system #2: not applying abstraction (same number of states)
+Atomic transition system #3: current size: 2 (shrink threshold: 1)
+Atomic transition system #3: not applying abstraction (same number of states)
+Merging atomic transition system #2 and atomic transition system #3
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 20 arcs 
+Composite transition system with 2/16 vars: init h=0
+Difference of init h values: 0
+t=0.00270696s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (4, 5)
+Atomic transition system #4: 2 states, 5 arcs 
+Atomic transition system #4: init h=0
+Atomic transition system #5: 2 states, 6 arcs 
+Atomic transition system #5: init h=0
+t=0.00331559s (after computation of next merge)
+Atomic transition system #4: current size: 2 (shrink threshold: 1)
+Atomic transition system #4: not applying abstraction (same number of states)
+Atomic transition system #5: current size: 2 (shrink threshold: 1)
+Atomic transition system #5: not applying abstraction (same number of states)
+Merging atomic transition system #4 and atomic transition system #5
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 18 arcs 
+Composite transition system with 2/16 vars: init h=0
+Difference of init h values: 0
+t=0.00377177s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (6, 7)
+Atomic transition system #6: 2 states, 6 arcs 
+Atomic transition system #6: init h=0
+Atomic transition system #7: 2 states, 5 arcs 
+Atomic transition system #7: init h=0
+t=0.00433868s (after computation of next merge)
+Atomic transition system #6: current size: 2 (shrink threshold: 1)
+Atomic transition system #6: not applying abstraction (same number of states)
+Atomic transition system #7: current size: 2 (shrink threshold: 1)
+Atomic transition system #7: not applying abstraction (same number of states)
+Merging atomic transition system #6 and atomic transition system #7
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 18 arcs 
+Composite transition system with 2/16 vars: init h=0
+Difference of init h values: 0
+t=0.00470844s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (8, 9)
+Atomic transition system #8: 2 states, 5 arcs 
+Atomic transition system #8: init h=0
+Atomic transition system #9: 2 states, 4 arcs 
+Atomic transition system #9: init h=0
+t=0.00523152s (after computation of next merge)
+Label reduction: 30 labels, 26 after reduction
+t=0.00569992s (after label reduction)
+Atomic transition system #8: current size: 2 (shrink threshold: 1)
+Atomic transition system #8: not applying abstraction (same number of states)
+Atomic transition system #9: current size: 2 (shrink threshold: 1)
+Atomic transition system #9: not applying abstraction (same number of states)
+Merging atomic transition system #8 and atomic transition system #9
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 14 arcs 
+Composite transition system with 2/16 vars: init h=0
+Difference of init h values: 0
+t=0.0057322s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (10, 11)
+Atomic transition system #10: 2 states, 4 arcs 
+Atomic transition system #10: init h=0
+Atomic transition system #11: 2 states, 3 arcs 
+Atomic transition system #11: init h=1
+t=0.0062103s (after computation of next merge)
+Atomic transition system #10: current size: 2 (shrink threshold: 1)
+Atomic transition system #10: not applying abstraction (same number of states)
+Atomic transition system #11: current size: 2 (shrink threshold: 1)
+Atomic transition system #11: not applying abstraction (same number of states)
+Merging atomic transition system #10 and atomic transition system #11
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 10 arcs 
+Composite transition system with 2/16 vars: init h=1
+Difference of init h values: 0
+t=0.00645508s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (12, 13)
+Atomic transition system #12: 2 states, 3 arcs 
+Atomic transition system #12: init h=1
+Atomic transition system #13: 2 states, 3 arcs 
+Atomic transition system #13: init h=1
+t=0.00692554s (after computation of next merge)
+Atomic transition system #12: current size: 2 (shrink threshold: 1)
+Atomic transition system #12: not applying abstraction (same number of states)
+Atomic transition system #13: current size: 2 (shrink threshold: 1)
+Atomic transition system #13: not applying abstraction (same number of states)
+Merging atomic transition system #12 and atomic transition system #13
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 8 arcs 
+Composite transition system with 2/16 vars: init h=2
+Difference of init h values: 1
+t=0.0071335s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (14, 15)
+Atomic transition system #14: 2 states, 5 arcs 
+Atomic transition system #14: init h=1
+Atomic transition system #15: 2 states, 4 arcs 
+Atomic transition system #15: init h=0
+t=0.0075638s (after computation of next merge)
+Atomic transition system #14: current size: 2 (shrink threshold: 1)
+Atomic transition system #14: not applying abstraction (same number of states)
+Atomic transition system #15: current size: 2 (shrink threshold: 1)
+Atomic transition system #15: not applying abstraction (same number of states)
+Merging atomic transition system #14 and atomic transition system #15
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 4 states, 9 arcs 
+Composite transition system with 2/16 vars: init h=2
+Difference of init h values: 1
+t=0.00776116s (after merging)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (21, 23)
+Composite transition system with 2/16 vars: 4 states, 10 arcs 
+Composite transition system with 2/16 vars: init h=1
+Composite transition system with 2/16 vars: 4 states, 9 arcs 
+Composite transition system with 2/16 vars: init h=2
+t=0.00815692s (after computation of next merge)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: applying abstraction (4 to 3 states)
+Composite transition system with 2/16 vars: simplification was not f-preserving!
+Composite transition system with 2/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 2/16 vars: 3 states, 7 arcs 
+Composite transition system with 2/16 vars: init h=2
+t=0.00832232s (after shrinking)
+Merging composite transition system with 2/16 vars and composite transition system with 2/16 vars
+Composite transition system with 4/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 4/16 vars: 12 states, 40 arcs 
+Composite transition system with 4/16 vars: init h=2
+Difference of init h values: 0
+t=0.00834102s (after merging)
+Composite transition system with 4/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (22, 24)
+Composite transition system with 2/16 vars: 4 states, 8 arcs 
+Composite transition system with 2/16 vars: init h=2
+Composite transition system with 4/16 vars: 12 states, 40 arcs 
+Composite transition system with 4/16 vars: init h=2
+t=0.00878072s (after computation of next merge)
+Label reduction: 26 labels, 25 after reduction
+t=0.00893671s (after label reduction)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 4/16 vars: current size: 12 (shrink threshold: 1)
+Composite transition system with 4/16 vars: not applying abstraction (same number of states)
+Merging composite transition system with 2/16 vars and composite transition system with 4/16 vars
+Composite transition system with 6/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 6/16 vars: 48 states, 160 arcs 
+Composite transition system with 6/16 vars: init h=6
+Difference of init h values: 4
+t=0.00899133s (after merging)
+Composite transition system with 6/16 vars: unreachable: 0 states, irrelevant: 2 states (total dead: 2 states)
+Composite transition system with 6/16 vars: applying abstraction (48 to 46 states)
+Composite transition system with 6/16 vars: 46 states, 157 arcs 
+Composite transition system with 6/16 vars: init h=6
+t=0.00901096s (after pruning)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (20, 25)
+Composite transition system with 2/16 vars: 4 states, 14 arcs 
+Composite transition system with 2/16 vars: init h=0
+Composite transition system with 6/16 vars: 46 states, 157 arcs 
+Composite transition system with 6/16 vars: init h=6
+t=0.00974063s (after computation of next merge)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 6/16 vars: current size: 46 (shrink threshold: 1)
+Composite transition system with 6/16 vars: not applying abstraction (same number of states)
+Merging composite transition system with 2/16 vars and composite transition system with 6/16 vars
+Composite transition system with 8/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 8/16 vars: 184 states, 964 arcs 
+Composite transition system with 8/16 vars: init h=7
+Difference of init h values: 1
+t=0.00997182s (after merging)
+Composite transition system with 8/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 132 KB
+
+Next pair of indices: (16, 26)
+Composite transition system with 2/16 vars: 4 states, 27 arcs 
+Composite transition system with 2/16 vars: init h=0
+Composite transition system with 8/16 vars: 184 states, 964 arcs 
+Composite transition system with 8/16 vars: init h=7
+t=0.0122552s (after computation of next merge)
+Label reduction: 25 labels, 23 after reduction
+t=0.0124293s (after label reduction)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 8/16 vars: current size: 184 (shrink threshold: 1)
+Composite transition system with 8/16 vars: applying abstraction (184 to 138 states)
+Composite transition system with 8/16 vars: 138 states, 661 arcs 
+Composite transition system with 8/16 vars: init h=7
+t=0.0127031s (after shrinking)
+Merging composite transition system with 2/16 vars and composite transition system with 8/16 vars
+Composite transition system with 10/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 10/16 vars: 552 states, 5818 arcs 
+Composite transition system with 10/16 vars: init h=7
+Difference of init h values: 0
+t=0.0131067s (after merging)
+Composite transition system with 10/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 272 KB
+
+Next pair of indices: (17, 27)
+Composite transition system with 2/16 vars: 4 states, 20 arcs 
+Composite transition system with 2/16 vars: init h=0
+Composite transition system with 10/16 vars: 552 states, 5818 arcs 
+Composite transition system with 10/16 vars: init h=7
+t=0.0190161s (after computation of next merge)
+Label reduction: 23 labels, 19 after reduction
+t=0.0193966s (after label reduction)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 10/16 vars: current size: 552 (shrink threshold: 1)
+Composite transition system with 10/16 vars: not applying abstraction (same number of states)
+Merging composite transition system with 2/16 vars and composite transition system with 10/16 vars
+Composite transition system with 12/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 12/16 vars: 2208 states, 28438 arcs 
+Composite transition system with 12/16 vars: init h=9
+Difference of init h values: 2
+t=0.0221637s (after merging)
+Composite transition system with 12/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 800 KB
+
+Next pair of indices: (18, 28)
+Composite transition system with 2/16 vars: 4 states, 18 arcs 
+Composite transition system with 2/16 vars: init h=0
+Composite transition system with 12/16 vars: 2208 states, 28438 arcs 
+Composite transition system with 12/16 vars: init h=9
+t=0.0410018s (after computation of next merge)
+Label reduction: 19 labels, 13 after reduction
+t=0.0426921s (after label reduction)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 12/16 vars: current size: 2208 (shrink threshold: 1)
+Composite transition system with 12/16 vars: not applying abstraction (same number of states)
+Merging composite transition system with 2/16 vars and composite transition system with 12/16 vars
+Composite transition system with 14/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 14/16 vars: 8832 states, 115056 arcs 
+Composite transition system with 14/16 vars: init h=10
+Difference of init h values: 1
+t=0.0553947s (after merging)
+Composite transition system with 14/16 vars: not applying abstraction (same number of states)
+Current peak memory increase of merge-and-shrink computation: 2676 KB
+
+Next pair of indices: (19, 29)
+Composite transition system with 2/16 vars: 4 states, 29 arcs 
+Composite transition system with 2/16 vars: init h=0
+Composite transition system with 14/16 vars: 8832 states, 115056 arcs 
+Composite transition system with 14/16 vars: init h=10
+t=0.0974535s (after computation of next merge)
+Label reduction: 13 labels, 8 after reduction
+t=0.106326s (after label reduction)
+Composite transition system with 2/16 vars: current size: 4 (shrink threshold: 1)
+Composite transition system with 2/16 vars: not applying abstraction (same number of states)
+Composite transition system with 14/16 vars: current size: 8832 (shrink threshold: 1)
+Composite transition system with 14/16 vars: not applying abstraction (same number of states)
+Merging composite transition system with 2/16 vars and composite transition system with 14/16 vars
+Composite transition system with 16/16 vars: computing init and goal distances using unit-cost algorithm
+Composite transition system with 16/16 vars: 35328 states, 427584 arcs 
+Composite transition system with 16/16 vars: init h=17
+Difference of init h values: 7
+t=0.165528s (after merging)
+Composite transition system with 16/16 vars: unreachable: 0 states, irrelevant: 66 states (total dead: 66 states)
+Composite transition system with 16/16 vars: applying abstraction (35328 to 35262 states)
+Composite transition system with 16/16 vars: 35262 states, 427540 arcs 
+Composite transition system with 16/16 vars: init h=17
+t=0.178765s (after pruning)
+Current peak memory increase of merge-and-shrink computation: 9540 KB
+
+Iterations with merge tiebreaking: 12
+Total tiebreaking merge candidates: 607
+Final transition system size: 35262
+Maximum intermediate abstraction size: 35328
+Maximum intermediate number of transitions: 427584
+Init h value improvements: [0, 0, 0, 0, 0, 0, 1, 1, 0, 4, 1, 0, 2, 1, 7]
+Course of label reduction: [32, 32, 30, 30, 30, 26, 26, 26, 26, 26, 25, 25, 23, 19, 13, 8]
+Course of miss qualified states shrinking: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Average imperfect shrinking: 0
+Merge order: [(0, 1), (2, 3), (4, 5), (6, 7), (8, 9), (10, 11), (12, 13), (14, 15), (21, 23), (22, 24), (20, 25), (16, 26), (17, 27), (18, 28), (19, 29)]
+Non-linear merge order
+Relative pruning per iteration: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0416667, 0, 0, 0, 0, 0.00186821]
+Average relative pruning: 0.00290232
+Number of attempts to merge for symmetries: 0
+Number of times non-perfect shrinking interfered merging for symmetries: 0
+Number of times pruning interfered merging for symmetries: 0
+Number of times merging for symmetries failed for any reason: 0
+Final peak memory increase of merge-and-shrink computation: 9540 KB
+Done initializing merge-and-shrink heuristic [0.178992s]
+
+Initializing symmetries (eager search)
+Initializing symmetries
+Using Bliss to find group generators
+Done initializing symmetries: 8.1744e-05s
+Number of generators: 1
+Number of identity generators (on states, not on operators): 0
+Order of generators: [2]
+Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 17
+[g=0, 1 evaluated, 0 expanded, t=0.180119s, 14932 KB]
+f = 17 [1 evaluated, 0 expanded, t=0.180144s, 14932 KB]
+Initial heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 17
+pruning method: stubborn sets simple
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 16
+[g=1, 2 evaluated, 1 expanded, t=0.180228s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 15
+[g=2, 6 evaluated, 2 expanded, t=0.180266s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 14
+[g=3, 8 evaluated, 3 expanded, t=0.18029s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 13
+[g=4, 11 evaluated, 4 expanded, t=0.180316s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 12
+[g=5, 14 evaluated, 5 expanded, t=0.18034s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 11
+[g=6, 15 evaluated, 6 expanded, t=0.180363s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 10
+[g=7, 16 evaluated, 7 expanded, t=0.180383s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 9
+[g=8, 20 evaluated, 8 expanded, t=0.180407s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 8
+[g=9, 23 evaluated, 9 expanded, t=0.180432s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 7
+[g=10, 25 evaluated, 10 expanded, t=0.180453s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 6
+[g=11, 27 evaluated, 11 expanded, t=0.180475s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 5
+[g=12, 29 evaluated, 12 expanded, t=0.180498s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 4
+[g=13, 32 evaluated, 13 expanded, t=0.180521s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 3
+[g=14, 37 evaluated, 14 expanded, t=0.180551s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 2
+[g=15, 40 evaluated, 15 expanded, t=0.180572s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 1
+[g=16, 41 evaluated, 16 expanded, t=0.18059s, 14932 KB]
+New best heuristic value for merge_and_shrink(shrink_strategy = shrink_bisimulation(greedy = false), merge_strategy = merge_stateless(merge_selector = score_based_filtering(scoring_functions = list(sf_miasm(shrink_strategy = shrink_bisimulation, max_states = 50000), total_order(atomic_before_product = true, atomic_ts_order = reverse_level, product_ts_order = old_to_new)))), label_reduction = exact(before_shrinking = true, before_merging = false), max_states = 50000, threshold_before_merge = 1, max_time = 900, prune_unreachable_states = false): 0
+[g=17, 44 evaluated, 17 expanded, t=0.180615s, 14932 KB]
+Solution found!
+Actual search time: 0.00047474s [t=0.180691s]
+down p1 p1 p2 (1)
+pick-up p1 p2 (1)
+right p1 p2 p2 (1)
+right p2 p2 p3 (1)
+up p3 p2 p1 (1)
+drop-off p3 p1 s1 (1)
+down p3 p1 p2 (1)
+down p3 p2 p3 (1)
+pick-up p3 p3 (1)
+up p3 p3 p2 (1)
+up p3 p2 p1 (1)
+drop-off p3 p1 s2 (1)
+left p3 p1 p2 (1)
+pick-up p2 p1 (1)
+right p2 p1 p3 (1)
+evacuate-safe-zone s1 (1)
+drop-off p3 p1 s1 (1)
+Plan length: 17 step(s).
+Plan cost: 17
+Expanded 18 state(s).
+Reopened 0 state(s).
+Evaluated 45 state(s).
+Evaluations: 45
+Generated 57 state(s).
+Dead ends: 0 state(s).
+Expanded until last jump: 0 state(s).
+Reopened until last jump: 0 state(s).
+Evaluated until last jump: 1 state(s).
+Generated until last jump: 0 state(s).
+Number of registered states: 57
+total successors before partial-order reduction: 67
+total successors after partial-order reduction: 57
+Search time: 0.00060277s
+Total time: 0.180699s
+Solution found.
+Peak memory: 14932 KB
+Overall time: [0.300s CPU, 0.305s wall-clock]
+
+==== Done running the selected planner. ====
+
+
+Error: Using TensorFlow backend.
+
+
+Plan found:
+0.00000: (down p1 p1 p2)
+0.00100: (pick-up p1 p2)
+0.00200: (right p1 p2 p2)
+0.00300: (right p2 p2 p3)
+0.00400: (up p3 p2 p1)
+0.00500: (drop-off p3 p1 s1)
+0.00600: (down p3 p1 p2)
+0.00700: (down p3 p2 p3)
+0.00800: (pick-up p3 p3)
+0.00900: (up p3 p3 p2)
+0.01000: (up p3 p2 p1)
+0.01100: (drop-off p3 p1 s2)
+0.01200: (left p3 p1 p2)
+0.01300: (pick-up p2 p1)
+0.01400: (right p2 p1 p3)
+0.01500: (evacuate-safe-zone s1)
+0.01600: (drop-off p3 p1 s1)
+Metric: 0.016000000000000007
+Makespan: 0.016000000000000007
+States evaluated: undefined
+Planner found 1 plan(s) in 7.452secs.

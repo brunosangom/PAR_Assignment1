@@ -1,25 +1,23 @@
 ;;!domain: rescue-drone
 ;;!problem: pb3
 
-0.00000: (RIGHT P1 P1 P2)
-0.00100: (PICK-UP P2 P1)
-0.00200: (RIGHT P2 P1 P3)
-0.00300: (DROP-OFF P3 P1 S2)
-0.00400: (DOWN P3 P1 P2)
-0.00500: (DOWN P3 P2 P3)
-0.00600: (PICK-UP P3 P3)
-0.00700: (UP P3 P3 P2)
-0.00800: (UP P3 P2 P1)
-0.00900: (DROP-OFF P3 P1 S1)
-0.01000: (LEFT P3 P1 P2)
-0.01100: (LEFT P2 P1 P1)
-0.01200: (DOWN P1 P1 P2)
-0.01300: (PICK-UP P1 P2)
-0.01400: (UP P1 P2 P1)
-0.01500: (EVACUATE-SAFE-ZONE S2)
-0.01600: (RIGHT P1 P1 P2)
-0.01700: (RIGHT P2 P1 P3)
-0.01800: (DROP-OFF P3 P1 S2)
+0.00000: (down p1 p1 p2)
+0.00100: (pick-up p1 p2)
+0.00200: (right p1 p2 p2)
+0.00300: (right p2 p2 p3)
+0.00400: (up p3 p2 p1)
+0.00500: (drop-off p3 p1 s1)
+0.00600: (down p3 p1 p2)
+0.00700: (down p3 p2 p3)
+0.00800: (pick-up p3 p3)
+0.00900: (up p3 p3 p2)
+0.01000: (up p3 p2 p1)
+0.01100: (drop-off p3 p1 s2)
+0.01200: (left p3 p1 p2)
+0.01300: (pick-up p2 p1)
+0.01400: (right p2 p1 p3)
+0.01500: (evacuate-safe-zone s1)
+0.01600: (drop-off p3 p1 s1)
 
-; Makespan: 0.01800000000000001
-; Metric: 0.01800000000000001
+; Makespan: 0.016000000000000007
+; Metric: 0.016000000000000007

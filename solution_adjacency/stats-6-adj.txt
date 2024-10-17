@@ -13,8 +13,8 @@ Generated until last jump: 0 state(s).
 Number of registered states: 184
 total successors before partial-order reduction: 212
 total successors after partial-order reduction: 138
-Search time: 0.00146701s
-Total time: 0.0146604s
+Search time: 0.00143199s
+Total time: 0.01488s
 Solution found.
 Peak memory: 7160 KB
-Overall time: [0.140s CPU, 0.149s wall-clock]
+Overall time: [0.130s CPU, 0.148s wall-clock]
