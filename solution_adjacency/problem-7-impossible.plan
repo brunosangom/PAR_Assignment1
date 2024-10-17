@@ -1,5 +1,5 @@
 ;;!domain: rescue-drone
-;;!problem: pb7
+;;!problem: rescue-drone-problem-5x5
 
 ; goal can be simplified to FALSE. No plan will solve it
 

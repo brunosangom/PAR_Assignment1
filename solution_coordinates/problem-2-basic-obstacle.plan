@@ -1,20 +1,20 @@
 ;;!domain: rescue-drone
 ;;!problem: pb2
 
-0.00000: (RIGHT P1 P1 P2)
-0.00100: (PICK-UP P2 P1)
-0.00200: (RIGHT P2 P1 P3)
-0.00300: (DROP-OFF P3 P1 S2)
-0.00400: (LEFT P3 P1 P2)
-0.00500: (DOWN P2 P1 P2)
-0.00600: (DOWN P2 P2 P3)
-0.00700: (RIGHT P2 P3 P3)
-0.00800: (PICK-UP P3 P3)
-0.00900: (LEFT P3 P3 P2)
-0.01000: (UP P2 P3 P2)
-0.01100: (UP P2 P2 P1)
-0.01200: (RIGHT P2 P1 P3)
-0.01300: (DROP-OFF P3 P1 S1)
+0.00000: (right p1 p1 p2)
+0.00100: (down p2 p1 p2)
+0.00200: (down p2 p2 p3)
+0.00300: (right p2 p3 p3)
+0.00400: (pick-up p3 p3)
+0.00500: (left p3 p3 p2)
+0.00600: (up p2 p3 p2)
+0.00700: (up p2 p2 p1)
+0.00800: (right p2 p1 p3)
+0.00900: (drop-off p3 p1 s1)
+0.01000: (left p3 p1 p2)
+0.01100: (pick-up p2 p1)
+0.01200: (right p2 p1 p3)
+0.01300: (drop-off p3 p1 s2)
 
 ; Makespan: 0.013000000000000005
 ; Metric: 0.013000000000000005

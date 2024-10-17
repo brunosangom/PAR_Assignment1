@@ -1,0 +1,20 @@
+Plan length: 22 step(s).
+Plan cost: 22
+Expanded 248 state(s).
+Reopened 0 state(s).
+Evaluated 338 state(s).
+Evaluations: 338
+Generated 725 state(s).
+Dead ends: 0 state(s).
+Expanded until last jump: 225 state(s).
+Reopened until last jump: 0 state(s).
+Evaluated until last jump: 308 state(s).
+Generated until last jump: 661 state(s).
+Number of registered states: 359
+total successors before partial-order reduction: 905
+total successors after partial-order reduction: 725
+Search time: 0.00201313s
+Total time: 1.62257s
+Solution found.
+Peak memory: 37512 KB
+Overall time: [1.750s CPU, 1.759s wall-clock]
