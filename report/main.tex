@@ -246,54 +246,38 @@ To begin, we tested the fundamental functionalities of the model, focusing on th
     \label{fig:initial-state}
 \end{figure}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/problem-1-plan.png}
-%     \vspace{-1cm}
-%     \caption{Solution Plan for Case 1: Basic}
-%     \label{fig:solution-plan}
-% \end{figure}
-\FloatBarrier
+\subsubsection{Solution}
+We can see that the movement actions function correctly with the coordinate system we have built for the model, as well as the pick-up and drop-off actions.
 
 \subsection{Case 2: Basic with Obstacles}
 
 Subsequently, we incorporate an additional complexity into the model: the presence of obstacles. This scenario replicates the conditions of Case 1, utilizing a small grid and a number of individuals that can be accommodated within the safe zone. However, an obstacle is strategically positioned in the direct path between one of the individuals and the safe zone. This setup is designed to rigorously assess the drone's navigational algorithms and its ability to effectively circumvent obstacles.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.55\textwidth]{assets/problem-2-basic-obstacle.drawio.png}
     \caption{Case 2: Basic with Obstacles}
     \label{fig:initial-state-obstacles}
 \end{figure}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/problem-2-plan.png}
-%     \vspace{-1cm}
-%     \caption{Solution Plan for Case 2: Basic with Obstacles}
-%     \label{fig:solution-plan-obstacles}
-% \end{figure}
-\FloatBarrier
+\subsubsection{Solution}
+We now see that the obstacles also act as expected, impeding the movement actions through the cells they occupy. This makes the drone avoid the obstacle by moving around it.
 
 \subsection{Case 3: Overcrowded}
 
 For the next case, we examine another of the features of the model: the capacity of the safe zone. In order to do this, we again utilize a simple layout with a small grid and no obstacles, but in this case, we introduce one more person to rescue, which makes the total number of people bigger than the safe zone capacity. The goal of this test case is to study whether the “spots” feature of the safe zone works as expected.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.55\textwidth]{assets/problem-3-overcrowded.drawio.png}
     \caption{Case 3: Overcrowded}
     \label{fig:initial-state-overcrowded}
 \end{figure}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/problem-3-plan.png}
-%     \vspace{-1cm}
-%     \caption{Solution Plan for Case 3: Overcrowded}
-%     \label{fig:solution-plan-overcrowded}
-% \end{figure}
-\FloatBarrier
+\subsubsection{Solution}
+In this case, we prove that the safe zone capacity is being taken into account as it should, having to evacuate one of the spots before dropping off the last person at the safe zone.
+
+\textbf{Note}: On earlier iterations of the model, we tried to implement the safe zone capacity with numeric functions (\texttt{:fluents} requirement of PDDL), but the available free online planners have trouble supporting them. Therefore, the concept of the spots of the free zone was implemented as a clean way to keep a count of the amount of people in the safe zone by only using predicates and actions (no functions)
 
 \subsection{Case 4: Default (PDF example)}
 
@@ -306,14 +290,8 @@ For case 4, we evaluate the default scenario provided as an example in the assig
     \label{fig:initial-state-default}
 \end{figure}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/problem-4-plan.png}
-%     \vspace{-1cm}
-%     \caption{Solution Plan for Case 4: Default}
-%     \label{fig:solution-plan-default}
-% \end{figure}
-\FloatBarrier
+\subsubsection{Solution}
+It is now shown that we can easily enlarge the problem from a 3x3 to a 4x4 grid and the model still functions as expected.
 
 \subsection{Case 5: Bigger Grid}
 
@@ -326,14 +304,8 @@ We proceed to conduct a test on a larger grid, specifically a \(5 \times 5\) con
     \label{fig:initial-state-bigger-grid}
 \end{figure}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/problem-5-plan.png}
-%     \vspace{-1cm}
-%     \caption{Solution Plan for Case 5: Bigger Grid}
-%     \label{fig:solution-plan-bigger-grid}
-% \end{figure}
-\FloatBarrier
+\subsubsection{Solution}
+Here we can appreciate how the most comprehensive test case (which includes all of the functionalities of the model) is solved correctly.
 
 \subsection{Case 6: Maze}
 
@@ -346,26 +318,22 @@ With this test case, we aim to again display all of the functionalities of the m
     \label{fig:initial-state-maze}
 \end{figure}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/problem-6-plan.png} % Increased width
-%     \vspace{-1cm}
-%     \caption{Solution Plan for Case 6: Maze}
-%     \label{fig:solution-plan-maze}
-% \end{figure}
-\FloatBarrier
+\subsubsection{Solution}
+We check again with a different test case that all of the functionalities behave as they should.
 
 \subsection{Case 7: Impossible}
 
 Finally, as a way to showcase the limits and restrictions of the model, we introduce a test case which is unsolvable. In this layout, the safe zone is fully surrounded by obstacles, and the only possible way to access it might be by moving diagonally, which is currently not an allowed type of movement.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.55\textwidth]{assets/problem-7-impossible.drawio.png} % Increased width
     \caption{Case 7: Impossible}
     \label{fig:initial-state-impossible}
 \end{figure}
-\FloatBarrier
+
+\subsubsection{Solution}
+Finally, we see how the planner indeed cannot find a solution to the proposed problem, which was the expected outcome, given that it should be impossible to solve with the given set of rules of the model
 
 \section{Performance Analysis}
 
