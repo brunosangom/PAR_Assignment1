@@ -184,10 +184,10 @@ INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
 INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
-INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 OUTPUT main.pdf
 INPUT C:\Users\sanch\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\sanch\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT .\assets\solution_coordinates\coordinates-system.jpeg
 INPUT .\assets\solution_coordinates\coordinates-system.jpeg
 INPUT .\assets\solution_coordinates\coordinates-system.jpeg

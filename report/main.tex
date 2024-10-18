@@ -105,7 +105,7 @@ The only PDDL requirements needed in the domain are:
 
 \subsection{Predicates}
 The predicates are essentially variables that can take either a \textit{true} or \textit{false} value for each collection of \textit{parameters} that they are given. In our domain, the predicates are those discussed in Section~\ref{sec:pred}.
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/predicates.png}
     \caption{Code: Predicates}
@@ -234,9 +234,7 @@ The \texttt{evacuate-safe-zone} action frees up one of the spots of the safe zon
 
 We conducted tests on a total of seven cases, each with increasing complexity. We began with a very basic scenario to verify the core functionality of the model and concluded with an unsolvable case that highlights the limitations of the established rules.
 
-For each of the seven cases, we briefly explain the objective of that test case, display a diagram of the initial and goal states.
-
-% For each of the 7 cases, we briefly explain the objective of that test case, display a diagram of the initial and goal states, and then show the \textit{PDDL} implementation of the problem.
+For each of the seven cases, we explain the objective of that test case, display a diagram of the initial and goal states, and briefly analyze the solution achieved with the planner. All of the solutions can be found in the \texttt{problem-*.plan} files attached to this report.
 
 \subsection{Case 1: Basic}
 
