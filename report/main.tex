@@ -41,7 +41,7 @@ To implement the model in \textit{PDDL}, we first need to define the predicates 
 \begin{tcolorbox}[colback=gray!10, colframe=black, title=Adjacency List vs. Coordinate System Approaches]
     The initial model suggested in the assignment assigns one location per grid cell and requires explicitly defining all location adjacencies to establish the grid layout. This "Adjacency List" method simplifies the drone's movement by consolidating all directions into a single action. However, it demands extensive initialization to specify all location adjacencies. To address this, we have chosen an alternative approach using a "Coordinate System" \((X, Y)\). This method requires separate actions for each movement direction but significantly reduces initialization complexity by only needing to define the order of coordinate values. Additionally, the coordinate-based system makes the problem definition much shorter and more concise, as it eliminates the need for detailed adjacency specifications. Each approach is implemented in separate directories, as explained in the Project Structure and PDDL Implementation section.
 \end{tcolorbox}
-
+\newpage
 \subsection{Predicates}\label{sec:pred}
 
 \begin{itemize}[label=--, itemsep=0.05em]
@@ -146,6 +146,8 @@ The rest of the movement actions (\texttt{down}, \texttt{right} and \texttt{left
 
 \subsubsection{Pick-up}
 The \texttt{pick-up} action places a person from the grid on the drone, for it to carry them to the safe zone.
+
+\newpage
 \begin{itemize}
     \item \underline{Parameters:}
     \begin{itemize}
@@ -227,6 +229,7 @@ The \texttt{evacuate-safe-zone} action frees up one of the spots of the safe zon
     \label{fig:act:evacuate}
 \end{figure}
 
+\newpage
 \section{Test Cases and Results}
 
 We conducted tests on a total of seven cases, each with increasing complexity. We began with a very basic scenario to verify the core functionality of the model and concluded with an unsolvable case that highlights the limitations of the established rules.
@@ -245,8 +248,8 @@ To begin, we tested the fundamental functionalities of the model, focusing on th
     \caption{Case 1: Basic}
     \label{fig:initial-state}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 We can see that the movement actions function correctly with the coordinate system we have built for the model, as well as the pick-up and drop-off actions.
 
 \subsection{Case 2: Basic with Obstacles}
@@ -259,8 +262,8 @@ Subsequently, we incorporate an additional complexity into the model: the presen
     \caption{Case 2: Basic with Obstacles}
     \label{fig:initial-state-obstacles}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 We now see that the obstacles also act as expected, impeding the movement actions through the cells they occupy. This makes the drone avoid the obstacle by moving around it.
 
 \subsection{Case 3: Overcrowded}
@@ -273,8 +276,8 @@ For the next case, we examine another of the features of the model: the capacity
     \caption{Case 3: Overcrowded}
     \label{fig:initial-state-overcrowded}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 In this case, we prove that the safe zone capacity is being taken into account as it should, having to evacuate one of the spots before dropping off the last person at the safe zone.
 
 \textbf{Note}: On earlier iterations of the model, we tried to implement the safe zone capacity with numeric functions (\texttt{:fluents} requirement of PDDL), but the available free online planners have trouble supporting them. Therefore, the concept of the spots of the free zone was implemented as a clean way to keep a count of the amount of people in the safe zone by only using predicates and actions (no functions)
@@ -289,8 +292,8 @@ For case 4, we evaluate the default scenario provided as an example in the assig
     \caption{Case 4: Default (PDF example)}
     \label{fig:initial-state-default}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 It is now shown that we can easily enlarge the problem from a 3x3 to a 4x4 grid and the model still functions as expected.
 
 \subsection{Case 5: Bigger Grid}
@@ -303,8 +306,8 @@ We proceed to conduct a test on a larger grid, specifically a \(5 \times 5\) con
     \caption{Case 5: Bigger Grid}
     \label{fig:initial-state-bigger-grid}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 Here we can appreciate how the most comprehensive test case (which includes all of the functionalities of the model) is solved correctly.
 
 \subsection{Case 6: Maze}
@@ -317,8 +320,8 @@ With this test case, we aim to again display all of the functionalities of the m
     \caption{Case 6: Maze}
     \label{fig:initial-state-maze}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 We check again with a different test case that all of the functionalities behave as they should.
 
 \subsection{Case 7: Impossible}
@@ -331,8 +334,8 @@ Finally, as a way to showcase the limits and restrictions of the model, we intro
     \caption{Case 7: Impossible}
     \label{fig:initial-state-impossible}
 \end{figure}
+\FloatBarrier
 
-\subsubsection{Solution}
 Finally, we see how the planner indeed cannot find a solution to the proposed problem, which was the expected outcome, given that it should be impossible to solve with the given set of rules of the model
 
 \section{Performance Analysis}
@@ -386,6 +389,7 @@ The table evaluates the following several key performance metrics for each appro
 
 Our results provide a comparative analysis of the "Adjacency" and "Coordinates" approaches across several problems. The Plan Cost remains consistent across both approaches for each problem, indicating that both methods are equally effective in terms of the cost of executing actions. Notably, in Problems 1 and 2, the metrics for Nodes Generated and Nodes Expanded are both zero. This suggests that these problems are straightforward enough that the initial state is already close to the goal state, requiring minimal exploration of the search space. Consequently, the search algorithms can directly reach the solution without generating or expanding additional nodes. However, as the complexity of the problems increases, the "Coordinates" approach generally generates and expands more nodes than the "Adjacency" approach, particularly noticeable in Problems 4 and 5. This indicates that the "Coordinates" method explores a larger search space, which could imply a more thorough search and therefore more computational effort. Interestingly, in Problem 3, the "Coordinates" solution generated and expanded fewer nodes than the "Adjacency" approach, yet it was still significantly slower. This highlights a potential inefficiency in the "Coordinates" method, where even with fewer nodes, the time taken is longer. The Total Time metric consistently shows that the "Coordinates" approach often takes longer to find a solution compared to the "Adjacency" approach. This is especially evident as the complexity of the problems increases, where the time difference becomes more pronounced. Overall, the "Adjacency" approach appears to be more efficient in terms of computational resources and time, particularly as the complexity of the problem evolves.
 
+\newpage
 \section{Conclusion}
 
 In this report, we explored two distinct approaches for modeling a rescue drone tasked with saving individuals in an emergency grid environment: the "Adjacency List" and the "Coordinate System" methods. Through a series of test cases, we evaluated the performance of each approach in terms of Plan Cost, Nodes Generated, Nodes Expanded, and Total Time.
