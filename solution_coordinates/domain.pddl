@@ -1,6 +1,6 @@
 (define (domain rescue-drone)
 
-    (:requirements :strips :equality :negative-preconditions)
+    (:requirements :strips :negative-preconditions)
 
     (:predicates
         (position ?P) ; P is a valid coordinate position (assuming square grid)
@@ -81,25 +81,45 @@
     (:action pick-up
         :parameters (?X ?Y)
 
-        :precondition (and (drone-location ?X ?Y) (person-location ?X ?Y) (empty-drone))
+        :precondition (and
+            (position ?X) (position ?Y)
+            (drone-location ?X ?Y)
+            (person-location ?X ?Y)
+            (empty-drone)
+        )
 
-        :effect (and (not (person-location ?X ?Y)) (not (empty-drone)))
+        :effect (and
+            (not (person-location ?X ?Y))
+            (not (empty-drone))
+        )
     )
 
     (:action drop-off
         :parameters (?X ?Y ?S)
 
         :precondition (and
-            (drone-location ?X ?Y) (not (empty-drone))
-            (safe-zone ?X ?Y) (spot ?S) (free-spot ?S)
+            (position ?X) (position ?Y)
+            (drone-location ?X ?Y)
+            (not (empty-drone))
+            (safe-zone ?X ?Y)
+            (spot ?S) (free-spot ?S)
         )
 
-        :effect (and (empty-drone) (person-location ?X ?Y) (not (free-spot ?S)))
+        :effect (and
+            (empty-drone)
+            (person-location ?X ?Y)
+            (not (free-spot ?S))
+        )
     )
 
     (:action evacuate-safe-zone
         :parameters (?S)
-        :precondition (and (spot ?S) (not (free-spot ?S)))
+
+        :precondition (and
+            (spot ?S)
+            (not (free-spot ?S))
+        )
+
         :effect (free-spot ?S)
     )
 

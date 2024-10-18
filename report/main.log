@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.17)  18 OCT 2024 10:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.17)  18 OCT 2024 13:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -315,40 +315,47 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@cntb=\count300
 \multirow@dima=\skip53
 \bigstrutjot=\dimen268
+) (C:\Users\sanch\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count301
+\float@exts=\toks35
+\float@box=\box73
+\@float@everytoks=\toks36
+\@floatcapt=\box74
 ) (C:\Users\sanch\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count301
-\l__pdf_internal_box=\box73
+\l__color_backend_stack_int=\count302
+\l__pdf_internal_box=\box75
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
  (C:\Users\sanch\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count302
+\scratchcounter=\count303
 \scratchdimen=\dimen269
-\scratchbox=\box74
-\nofMPsegments=\count303
-\nofMParguments=\count304
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count305
+\scratchbox=\box76
+\nofMPsegments=\count304
+\nofMParguments=\count305
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count306
 \MPscratchDim=\dimen270
-\MPnumerator=\count306
-\makeMPintoPDFobject=\count307
-\everyMPtoPDFconversion=\toks36
+\MPnumerator=\count307
+\makeMPintoPDFobject=\count308
+\everyMPtoPDFconversion=\toks38
 ) (C:\Users\sanch\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -356,6 +363,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -393,87 +401,135 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 26.
+(Font)              <12> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 26.
+(Font)              <8> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 26.
+(Font)              <6> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 30.
+(Font)              <7> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 30.
+(Font)              <5> on input line 31.
 
 
 [1
 
 {C:/Users/sanch/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+<assets/solution_coordinates/coordinates-system.jpeg, id=16, 536.0025pt x 389.455pt>
+File: assets/solution_coordinates/coordinates-system.jpeg Graphic file (type jpg)
+<use assets/solution_coordinates/coordinates-system.jpeg>
+Package pdftex.def Info: assets/solution_coordinates/coordinates-system.jpeg  used on input line 78.
+(pdftex.def)             Requested size: 266.03474pt x 193.29485pt.
 
-[2]
-<assets/problem-1-basic.drawio.png, id=22, 606.265pt x 294.09875pt>
+
+[2 <./assets/solution_coordinates/coordinates-system.jpeg>]
+<assets/solution_coordinates/requirements.png, id=23, 1003.75pt x 126.4725pt>
+File: assets/solution_coordinates/requirements.png Graphic file (type png)
+<use assets/solution_coordinates/requirements.png>
+Package pdftex.def Info: assets/solution_coordinates/requirements.png  used on input line 101.
+(pdftex.def)             Requested size: 266.03474pt x 33.52083pt.
+<assets/solution_coordinates/predicates.png, id=25, 1003.75pt x 760.8425pt>
+File: assets/solution_coordinates/predicates.png Graphic file (type png)
+<use assets/solution_coordinates/predicates.png>
+Package pdftex.def Info: assets/solution_coordinates/predicates.png  used on input line 110.
+(pdftex.def)             Requested size: 266.03474pt x 201.65712pt.
+
+
+[3 <./assets/solution_coordinates/requirements.png> <./assets/solution_coordinates/predicates.png>]
+<assets/solution_coordinates/up.png, id=31, 1003.75pt x 648.4225pt>
+File: assets/solution_coordinates/up.png Graphic file (type png)
+<use assets/solution_coordinates/up.png>
+Package pdftex.def Info: assets/solution_coordinates/up.png  used on input line 141.
+(pdftex.def)             Requested size: 266.03474pt x 171.86082pt.
+
+
+[4 <./assets/solution_coordinates/up.png>]
+<assets/solution_coordinates/pick-up.png, id=38, 1003.75pt x 648.4225pt>
+File: assets/solution_coordinates/pick-up.png Graphic file (type png)
+<use assets/solution_coordinates/pick-up.png>
+Package pdftex.def Info: assets/solution_coordinates/pick-up.png  used on input line 170.
+(pdftex.def)             Requested size: 266.03474pt x 171.86082pt.
+<assets/solution_coordinates/drop-off.png, id=39, 1003.75pt x 724.7075pt>
+File: assets/solution_coordinates/drop-off.png Graphic file (type png)
+<use assets/solution_coordinates/drop-off.png>
+Package pdftex.def Info: assets/solution_coordinates/drop-off.png  used on input line 201.
+(pdftex.def)             Requested size: 266.03474pt x 192.07974pt.
+
+
+[5 <./assets/solution_coordinates/pick-up.png>]
+<assets/solution_coordinates/evacuate-safe-zone.png, id=44, 1003.75pt x 461.725pt>
+File: assets/solution_coordinates/evacuate-safe-zone.png Graphic file (type png)
+<use assets/solution_coordinates/evacuate-safe-zone.png>
+Package pdftex.def Info: assets/solution_coordinates/evacuate-safe-zone.png  used on input line 225.
+(pdftex.def)             Requested size: 266.03474pt x 122.37767pt.
+
+
+[6 <./assets/solution_coordinates/drop-off.png> <./assets/solution_coordinates/evacuate-safe-zone.png>]
+<assets/problem-1-basic.drawio.png, id=50, 606.265pt x 294.09875pt>
 File: assets/problem-1-basic.drawio.png Graphic file (type png)
 <use assets/problem-1-basic.drawio.png>
-Package pdftex.def Info: assets/problem-1-basic.drawio.png  used on input line 99.
+Package pdftex.def Info: assets/problem-1-basic.drawio.png  used on input line 244.
 (pdftex.def)             Requested size: 266.03474pt x 129.0538pt.
-<assets/problem-2-basic-obstacle.drawio.png, id=24, 606.265pt x 294.09875pt>
+<assets/problem-2-basic-obstacle.drawio.png, id=51, 606.265pt x 294.09875pt>
 File: assets/problem-2-basic-obstacle.drawio.png Graphic file (type png)
 <use assets/problem-2-basic-obstacle.drawio.png>
-Package pdftex.def Info: assets/problem-2-basic-obstacle.drawio.png  used on input line 119.
+Package pdftex.def Info: assets/problem-2-basic-obstacle.drawio.png  used on input line 264.
 (pdftex.def)             Requested size: 266.03474pt x 129.0538pt.
-<assets/problem-3-overcrowded.drawio.png, id=25, 751.80875pt x 294.09875pt>
+<assets/problem-3-overcrowded.drawio.png, id=52, 751.80875pt x 294.09875pt>
 File: assets/problem-3-overcrowded.drawio.png Graphic file (type png)
 <use assets/problem-3-overcrowded.drawio.png>
-Package pdftex.def Info: assets/problem-3-overcrowded.drawio.png  used on input line 139.
+Package pdftex.def Info: assets/problem-3-overcrowded.drawio.png  used on input line 284.
 (pdftex.def)             Requested size: 266.03474pt x 104.07146pt.
 
 
-[3 <./assets/problem-1-basic.drawio.png> <./assets/problem-2-basic-obstacle.drawio.png>]
-<assets/problem-4-pdf-example.drawio.png, id=31, 766.865pt x 393.47pt>
+[7 <./assets/problem-1-basic.drawio.png> <./assets/problem-2-basic-obstacle.drawio.png>]
+<assets/problem-4-pdf-example.drawio.png, id=59, 766.865pt x 393.47pt>
 File: assets/problem-4-pdf-example.drawio.png Graphic file (type png)
 <use assets/problem-4-pdf-example.drawio.png>
-Package pdftex.def Info: assets/problem-4-pdf-example.drawio.png  used on input line 159.
+Package pdftex.def Info: assets/problem-4-pdf-example.drawio.png  used on input line 304.
 (pdftex.def)             Requested size: 266.03474pt x 136.49777pt.
-<assets/problem-5-big.drawio.png, id=32, 1085.05376pt x 460.72125pt>
+<assets/problem-5-big.drawio.png, id=60, 1085.05376pt x 460.72125pt>
 File: assets/problem-5-big.drawio.png Graphic file (type png)
 <use assets/problem-5-big.drawio.png>
-Package pdftex.def Info: assets/problem-5-big.drawio.png  used on input line 179.
+Package pdftex.def Info: assets/problem-5-big.drawio.png  used on input line 324.
 (pdftex.def)             Requested size: 266.03474pt x 112.95853pt.
-<assets/problem-6-maze.drawio.png, id=33, 1087.06125pt x 453.695pt>
+<assets/problem-6-maze.drawio.png, id=61, 1087.06125pt x 453.695pt>
 File: assets/problem-6-maze.drawio.png Graphic file (type png)
 <use assets/problem-6-maze.drawio.png>
-Package pdftex.def Info: assets/problem-6-maze.drawio.png  used on input line 199.
+Package pdftex.def Info: assets/problem-6-maze.drawio.png  used on input line 344.
 (pdftex.def)             Requested size: 266.03474pt x 111.02817pt.
 
 
-[4 <./assets/problem-3-overcrowded.drawio.png> <./assets/problem-4-pdf-example.drawio.png> <./assets/problem-5-big.drawio.png>]
-<assets/problem-7-impossible.drawio.png, id=40, 926.46124pt x 491.8375pt>
+[8 <./assets/problem-3-overcrowded.drawio.png> <./assets/problem-4-pdf-example.drawio.png> <./assets/problem-5-big.drawio.png>]
+<assets/problem-7-impossible.drawio.png, id=68, 926.46124pt x 491.8375pt>
 File: assets/problem-7-impossible.drawio.png Graphic file (type png)
 <use assets/problem-7-impossible.drawio.png>
-Package pdftex.def Info: assets/problem-7-impossible.drawio.png  used on input line 219.
+Package pdftex.def Info: assets/problem-7-impossible.drawio.png  used on input line 364.
 (pdftex.def)             Requested size: 266.03474pt x 141.23332pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 232.
+(Font)              <9> on input line 377.
 
 
-[5 <./assets/problem-6-maze.drawio.png> <./assets/problem-7-impossible.drawio.png>]
+[9 <./assets/problem-6-maze.drawio.png> <./assets/problem-7-impossible.drawio.png>]
 
-[6] (main.aux)
+[10] (main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16561 strings out of 473899
- 353117 string characters out of 5726499
- 721700 words of memory out of 5000000
- 39200 multiletter control sequences out of 15000+600000
- 564393 words of font info for 57 fonts, out of 8000000 for 9000
+ 16685 strings out of 473899
+ 356786 string characters out of 5726499
+ 723271 words of memory out of 5000000
+ 39319 multiletter control sequences out of 15000+600000
+ 564770 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,10n,107p,1851b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\sanch\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (6 pages, 318843 bytes).
+ <C:\Users\sanch\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1000.pk> <C:\Users\sanch\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/sanch/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (10 pages, 598130 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

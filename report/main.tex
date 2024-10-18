@@ -6,6 +6,7 @@
 \usepackage{enumitem}
 \usepackage{tcolorbox}
 \usepackage{multirow}
+\usepackage{float}
 
 % Set page margins
 \geometry{a4paper, margin=2cm}
@@ -27,7 +28,7 @@
 
 \section{Introduction to the Problem}
 
-The assignment involves modeling a rescue drone tasked with saving stranded individuals in an emergency site an transporting them to a designated safezone, all while avoiding obstacles. The emergency site is depicted as a square grid, with certain cells containing obstacles, while others house the safe zone, the drone, and stranded individuals. The drone can move horizontally or vertically between adjacent cells as long as the target cell is not an obstacle. It will collect individuals from the grid and transport them to the safe zone one at a time. Additionally, there is a condition which the model must satisfy: the maximum safe zone capacity (how many people it can hold at once). For a grid of dimensions \(N \times N\), the safe zone has a capacity of \(M = N - 1\). Once the drone has rescued \(M\) people from the grid and dropped them off at the safe zone, if there are more stranded people left to rescue, we must simulate the process of people being evacuated from the safe zone in order to make room for the remaining ones that still need rescue.
+The assignment involves modeling a rescue drone tasked with saving stranded individuals in an emergency site an transporting them to a designated safe zone, all while avoiding obstacles. The emergency site is depicted as a square grid, with certain cells containing obstacles, while others house the safe zone, the drone, and stranded individuals. The drone can move horizontally or vertically between adjacent cells as long as the target cell is not an obstacle. It will collect individuals from the grid and transport them to the safe zone one at a time. Additionally, there is a condition which the model must satisfy: the maximum safe zone capacity (how many people it can hold at once). For a grid of dimensions \(N \times N\), the safe zone has a capacity of \(M = N - 1\). Once the drone has rescued \(M\) people from the grid and dropped them off at the safe zone, if there are more stranded people left to rescue, we must simulate the process of people being evacuated from the safe zone in order to make room for the remaining ones that still need rescue.
 
 The goal of the model is to find a series of steps (a plan) to rescue all individuals in the emergency zone. This will be achieved using the \textit{PDDL language} to construct the model (\textit{domain}), define initial conditions and objectives (\textit{problem}), and ultimately compute a plan.
 
@@ -41,7 +42,7 @@ To implement the model in \textit{PDDL}, we first need to define the predicates 
     The initial model suggested in the assignment assigns one location per grid cell and requires explicitly defining all location adjacencies to establish the grid layout. This "Adjacency List" method simplifies the drone's movement by consolidating all directions into a single action. However, it demands extensive initialization to specify all location adjacencies. To address this, we have chosen an alternative approach using a "Coordinate System" \((X, Y)\). This method requires separate actions for each movement direction but significantly reduces initialization complexity by only needing to define the order of coordinate values. Additionally, the coordinate-based system makes the problem definition much shorter and more concise, as it eliminates the need for detailed adjacency specifications. Each approach is implemented in separate directories, as explained in the Project Structure and PDDL Implementation section.
 \end{tcolorbox}
 
-\subsection{Predicates}
+\subsection{Predicates}\label{sec:pred}
 
 \begin{itemize}[label=--, itemsep=0.05em]
     \item \textbf{Position(P):} \textit{P} is a valid coordinate position of the grid.
@@ -50,14 +51,14 @@ To implement the model in \textit{PDDL}, we first need to define the predicates 
     \item \textbf{Spot(S):} \textit{S} is a valid spot in the safe zone (to hold a person).
     \item \textbf{Free-spot(S):} Spot \textit{S} of the safe zone is free at the moment.
     \item \textbf{Obstacle(X, Y):} There is an obstacle at coordinates \((X, Y)\).
-    \item \textbf{Person(X, Y):} There is a person at coordinates \((X, Y)\).
-    \item \textbf{Drone(X, Y):} The drone is at coordinates \((X, Y)\) at the moment.
+    \item \textbf{Person-Location(X, Y):} There is a person at coordinates \((X, Y)\) at the moment.
+    \item \textbf{Drone-Location(X, Y):} The drone is at coordinates \((X, Y)\) at the moment.
     \item \textbf{Empty-drone():} The drone is not carrying a person at the moment.
 \end{itemize}
 
 \textbf{Note:} Since the grid is squared (\(N \times N\)), we only need \(N\) coordinate positions \(P_1, \ldots, P_N\) to build a coordinate system that fully describes the grid. Then, both coordinates \(X\) and \(Y\) take values among those coordinate positions.
 
-\subsection{Actions}
+\subsection{Actions}\label{sec:act}
 
 \begin{itemize}[label=--, itemsep=0.05em]
     \item \textbf{Up(X, Y, NY):} The drone moves up from coordinates \((X, Y)\) to \((X, NY)\).
@@ -71,16 +72,160 @@ To implement the model in \textit{PDDL}, we first need to define the predicates 
 
 \textbf{Note:} Before taking the moving actions (up, down, right, and left), it is checked whether the target coordinates hold an obstacle or not. If they do, the action cannot be taken. Similarly, the pick-up action checks that a person is at position \((X, Y)\) before being taken.
 
+\textbf{Note 2:} It is important to clarify that the coordinate system that we use to model the grid has the origin set at the top-left corner, as illustrated by the following figure:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/coordinates-system.jpeg}
+    \caption{Coordinate System}
+    \label{fig:coord}
+\end{figure}
+
 \section{Project Structure and PDDL Implementation}
 
-The project is organized into two main directories, \texttt{solution\_coordinates} and \texttt{solution\_default}, each containing the necessary files for implementing and testing the respective approaches. Each directory includes a \texttt{domain.pddl} file, which establishes the model's conditions, including predicates and actions specific to the approach. The \texttt{problem-*.pddl} files define the initial conditions and goal states for each test case, allowing us to evaluate the model under various scenarios.
+The project is organized into two main directories, \texttt{solution\_coordinates} and \texttt{solution\_adjacency}, each containing the necessary files for implementing and testing the respective approaches. Each directory includes a \texttt{domain.pddl} file, which establishes the model's conditions, including predicates and actions specific to the approach. The \texttt{problem-*.pddl} files define the initial conditions and goal states for each test case, allowing us to evaluate the model under various scenarios.
 
 Additionally, each problem has a corresponding \texttt{problem-*.plan} file, which contains the PDDL plan generated by the planner, and a \texttt{problem-*.txt} file, which logs the planner's output, including computational metrics. To efficiently extract and analyze these metrics, we developed a Python script, \texttt{extract\_metrics.py}, which processes the planner logs to provide insights into the computational performance of each approach.
 
 To facilitate the development and testing of our PDDL files, we set up our project using \textbf{Visual Studio Code} with the PDDL extension. We utilized the \textbf{Delfi planner} to execute and evaluate our PDDL models, allowing us to test various scenarios and configurations efficiently.
 
-In this section, we will only display the \texttt{domain.pddl} implementation. In the next section, \textit{Test Cases and Results}, we will show the multiple \texttt{problem.pddl} configurations that we have tested and the results attained with each of them.
+In this section, we will explain the \texttt{domain.pddl} implementation. In the next section, \textit{Test Cases and Results}, we will show the multiple problem configurations that we have tested and the results attained with each of them.
 
+\subsection{Requirements}
+The only PDDL requirements needed in the domain are:
+\begin{enumerate}
+    \item \texttt{:strips}, which indicates that the domain adheres to the basic action representation of the STRIPS framework.
+    \item \texttt{:negative-preconditions}, which enables the use of the \texttt{not()} operator in the preconditions of actions.
+\end{enumerate}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/requirements.png}
+    \caption{Code: Requirements}
+    \label{fig:req}
+\end{figure}
+
+\subsection{Predicates}
+The predicates are essentially variables that can take either a \textit{true} or \textit{false} value for each collection of \textit{parameters} that they are given. In our domain, the predicates are those discussed in Section~\ref{sec:pred}.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/predicates.png}
+    \caption{Code: Predicates}
+    \label{fig:pred}
+\end{figure}
+
+\subsection{Actions}
+The actions are the possible steps that can be taken throughout a plan. Each of them recieves a number of \textit{parameters}, which are the objects that intervene in the action. Then, for the action to be allowed to happen, all of its \textit{preconditions} have to be met and, in that case, the \textit{effects} of the action can be applied. In our domain, the actions are those discussed in Section~\ref{sec:act}.
+\subsubsection{Movement}
+All of the movement actions (\texttt{up}, \texttt{down}, \texttt{right} and \texttt{left}) are very similar, so we will only delve into one of them: the \texttt{up} action, which moves the drone from the current cell of the grid to the one on top.
+\begin{itemize}
+    \item \underline{Parameters:}
+    \begin{itemize}
+        \item $X$: Starting X coordinate of the drone.
+        \item $Y$: Starting Y coordinate of the drone.
+        \item $NY$: New Y coordinate to which the drone is moving.
+    \end{itemize}
+    \item \underline{Preconditions:}
+    \begin{itemize}
+        \item \textit{Position(X), Position(Y), Position(NY)}: $X, Y,$ and $NY$ must be valid positions of the grid.
+        \item \textit{Inc(NY, Y)}: Since the drone is moving up, NY must be a lower coordinate value than Y.
+        \item \textit{Drone-location(X, Y)}: The drone must be at the starting location $(X, Y)$.
+        \item \textit{¬Obstacle(X, NY)}: There must \textbf{not} be an obstacle at the new location $(X, NY)$.
+    \end{itemize}
+    \item \underline{Effects:}
+    \begin{itemize}
+        \item \textit{Drone-location(X, NY)}: The drone is now at the new location $(X, NY)$.
+        \item \textit{¬Drone-location(X, Y)}: The drone is no longer at the starting location $(X, Y)$.
+    \end{itemize}
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/up.png}
+    \caption{Code: Up Action}
+    \label{fig:act:up}
+\end{figure}
+The rest of the movement actions (\texttt{down}, \texttt{right} and \texttt{left}) are analog to this one, changing when necessary the order of the increment of coordinates and the new coordinate (from $NY$ to $NX$).
+
+\subsubsection{Pick-up}
+The \texttt{pick-up} action places a person from the grid on the drone, for it to carry them to the safe zone.
+\begin{itemize}
+    \item \underline{Parameters:}
+    \begin{itemize}
+        \item $X$: Current X coordinate of the drone.
+        \item $Y$: Current Y coordinate of the drone.
+    \end{itemize}
+    \item \underline{Preconditions:}
+    \begin{itemize}
+        \item \textit{Position(X), Position(Y)}: $X$ and $Y$ must be valid positions of the grid.
+        \item \textit{Drone-location(X, Y)}: The drone must be at the location $(X, Y)$.
+        \item \textit{Person-location(X, Y)}: A person must be at the location $(X, Y)$.
+        \item \textit{Empty-drone()}: The drone must be empty (not carrying anyone).
+    \end{itemize}
+    \item \underline{Effects:}
+    \begin{itemize}
+        \item \textit{¬Person-location(X, Y)}: The person is no longer at location $(X, Y)$, they are inside the drone.
+        \item \textit{¬Empty-drone()}: The drone is no longer empty.
+    \end{itemize}
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/pick-up.png}
+    \caption{Code: Pick-Up Action}
+    \label{fig:act:pick-up}
+\end{figure}
+
+\subsubsection{Drop-off}
+The \texttt{drop-off} action leaves a person who is inside the drone at the safe zone.
+\begin{itemize}
+    \item \underline{Parameters:}
+    \begin{itemize}
+        \item $X$: Current X coordinate of the drone.
+        \item $Y$: Current Y coordinate of the drone.
+        \item $S$: One of the spots of the safe zone.
+    \end{itemize}
+    \item \underline{Preconditions:}
+    \begin{itemize}
+        \item \textit{Position(X), Position(Y)}: $X$ and $Y$ must be valid positions of the grid.
+        \item \textit{Drone-location(X, Y)}: The drone must be at the location $(X, Y)$.
+        \item \textit{¬Empty-drone()}: The drone must be carrying a person.
+        \item \textit{Safe-Zone(X, Y)}: The safe zone must be at the location $(X, Y)$.
+        \item \textit{Spot(S), Free-Spot(S)}: $S$ must be a valid spot of the safe zone, and be free at the moment.
+    \end{itemize}
+    \item \underline{Effects:}
+    \begin{itemize}
+        \item \textit{Empty-drone()}: The drone is no longer carrying the person.
+        \item \textit{Person-location(X, Y)}: The person is now at location $(X, Y)$, in the safe zone.
+        \item \textit{¬Free-Spot(S)}: The spot $S$ of the safe zone is now occupied.
+    \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/drop-off.png}
+    \caption{Code: Drop-Off Action}
+    \label{fig:act:drop-off}
+\end{figure}
+
+\subsubsection{Evacuate-Safe-Zone}
+The \texttt{evacuate-safe-zone} action frees up one of the spots of the safe zone when it is full.
+\begin{itemize}
+    \item \underline{Parameters:}
+    \begin{itemize}
+        \item $S$: One of the spots of the safe zone.
+    \end{itemize}
+    \item \underline{Preconditions:}
+    \begin{itemize}
+        \item \textit{Spot(S)}: $S$ must be a valid spot of the safe zone.
+        \item \textit{¬Free-Spot(S)}: $S$ must be occupied at the moment.
+    \end{itemize}
+    \item \underline{Effects:}
+    \begin{itemize}
+        \item \textit{Free-Spot(S)}: The spot $S$ of the safe zone is now free.
+    \end{itemize}
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/solution_coordinates/evacuate-safe-zone.png}
+    \caption{Code: Evacuate-Safe-Zone Action}
+    \label{fig:act:evacuate}
+\end{figure}
 
 \section{Test Cases and Results}
 
